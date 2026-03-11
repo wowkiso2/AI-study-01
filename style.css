@@ -39,6 +39,9 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px var(--shadow-color);
     transition: background-color 0.3s, box-shadow 0.3s;
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto;
 }
 
 h1 {
@@ -131,6 +134,18 @@ h1 {
 
 .submit-btn:hover {
     background-color: #333;
+}
+
+/* Disqus Section */
+.disqus-section {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.disqus-section hr {
+    border: 0;
+    border-top: 1px solid var(--shadow-color);
+    margin-bottom: 1.5rem;
 }
 
 /* Theme Toggle Button */

@@ -12,6 +12,7 @@ This is a simple web application that generates and displays random lottery numb
 *   **Responsive Design:** The application is responsive and works well on both desktop and mobile devices.
 *   **Dark/Light Mode:** Toggle between dark and light themes with preference persistence.
 *   **Business Inquiry Form:** Integrated with Formspree for receiving collaboration requests.
+*   **Disqus Comments:** Integrated community discussion board for user feedback.
 
 ## Project Structure
 
