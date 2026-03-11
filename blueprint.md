@@ -10,6 +10,7 @@ This is a simple web application that generates and displays random lottery numb
 *   **Lottery Number Generation:** Generates 6 unique random numbers between 1 and 45.
 *   **User-Friendly Interface:** A clean and intuitive interface for generating and viewing lottery numbers.
 *   **Responsive Design:** The application is responsive and works well on both desktop and mobile devices.
+*   **Dark/Light Mode:** Toggle between dark and light themes with preference persistence.
 
 ## Project Structure
 

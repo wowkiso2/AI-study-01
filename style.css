@@ -1,25 +1,49 @@
 
+:root {
+    --bg-color: #f0f0f0;
+    --container-bg: white;
+    --text-color: #333;
+    --lotto-number-bg: #4CAF50;
+    --btn-bg: #008CBA;
+    --btn-hover: #005f7a;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --text-color: #f0f0f0;
+    --lotto-number-bg: #45a049;
+    --btn-bg: #00769e;
+    --btn-hover: #005c7c;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
+    position: relative;
     text-align: center;
-    background-color: white;
+    background-color: var(--container-bg);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 h1 {
     margin-bottom: 1.5rem;
-    color: #333;
+    color: var(--text-color);
 }
 
 .lotto-numbers {
@@ -33,17 +57,18 @@ h1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #4CAF50;
+    background-color: var(--lotto-number-bg);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 #generate-btn {
-    background-color: #008CBA;
+    background-color: var(--btn-bg);
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -54,7 +79,27 @@ h1 {
 }
 
 #generate-btn:hover {
-    background-color: #005f7a;
+    background-color: var(--btn-hover);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--container-bg);
 }
 
 /* Animation for the numbers */
