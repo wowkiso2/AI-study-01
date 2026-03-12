@@ -1,166 +1,149 @@
-
+/* ===========================
+   CSS Variables / Theme
+   =========================== */
 :root {
-    --bg-color: #f0f0f0;
-    --container-bg: white;
-    --text-color: #333;
+    --bg-color: #f5f7fa;
+    --container-bg: #ffffff;
+    --text-color: #333333;
+    --text-muted: #666666;
     --lotto-number-bg: #4CAF50;
     --btn-bg: #008CBA;
     --btn-hover: #005f7a;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --border-color: #e0e0e0;
+    --accent-color: #008CBA;
+    --alt-bg: #eef2f7;
+    --header-bg: #ffffff;
+    --footer-bg: #2c3e50;
+    --footer-text: #ecf0f1;
+    --highlight-bg: #e8f5e9;
+    --info-box-bg: #e3f2fd;
+    --responsible-bg: #fff3e0;
+    --table-header-bg: #008CBA;
+    --table-row-alt: #f9f9f9;
 }
 
 .dark-theme {
-    --bg-color: #1a1a1a;
-    --container-bg: #2d2d2d;
-    --text-color: #f0f0f0;
+    --bg-color: #1a1a2e;
+    --container-bg: #16213e;
+    --text-color: #e0e0e0;
+    --text-muted: #aaaaaa;
     --lotto-number-bg: #45a049;
-    --btn-bg: #00769e;
+    --btn-bg: #0077a8;
     --btn-hover: #005c7c;
-    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --border-color: #333355;
+    --accent-color: #00aadd;
+    --alt-bg: #0f3460;
+    --header-bg: #0d1b2a;
+    --footer-bg: #0d1b2a;
+    --footer-text: #cccccc;
+    --highlight-bg: #1b3a1b;
+    --info-box-bg: #1a2a3a;
+    --responsible-bg: #3a2a10;
+    --table-header-bg: #005f7a;
+    --table-row-alt: #1e2a3a;
+}
+
+/* ===========================
+   Reset & Base
+   =========================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    margin: 0;
+    line-height: 1.7;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.container {
-    position: relative;
-    text-align: center;
-    background-color: var(--container-bg);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    transition: background-color 0.3s, box-shadow 0.3s;
-    width: 90%;
-    max-width: 600px;
-    margin: 2rem auto;
-}
-
-h1 {
-    margin-bottom: 1.5rem;
+h1, h2, h3 {
     color: var(--text-color);
+    line-height: 1.3;
 }
 
-.lotto-numbers {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+a {
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
-.lotto-number {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--lotto-number-bg);
-    color: white;
+a:hover {
+    text-decoration: underline;
+}
+
+code {
+    background: var(--border-color);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* ===========================
+   Header
+   =========================== */
+header {
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 64px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    gap: 2rem;
 }
 
-#generate-btn {
-    background-color: var(--btn-bg);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-#generate-btn:hover {
-    background-color: var(--btn-hover);
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
 }
 
-/* Inquiry Form Styles */
-.inquiry-section {
-    margin-top: 2rem;
-    padding-top: 1rem;
+.main-nav a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-decoration: none;
 }
 
-.inquiry-section hr {
-    border: 0;
-    border-top: 1px solid var(--shadow-color);
-    margin-bottom: 1.5rem;
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--accent-color);
 }
 
-.inquiry-section h3 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--shadow-color);
-    border-radius: 5px;
-    background-color: var(--container-bg);
-    color: var(--text-color);
-    box-sizing: border-box;
-}
-
-.form-group textarea {
-    height: 80px;
-    resize: vertical;
-}
-
-.submit-btn {
-    width: 100%;
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #333;
-}
-
-/* Disqus Section */
-.disqus-section {
-    margin-top: 2rem;
-    text-align: left;
-}
-
-.disqus-section hr {
-    border: 0;
-    border-top: 1px solid var(--shadow-color);
-    margin-bottom: 1.5rem;
-}
-
-/* Theme Toggle Button */
 .theme-toggle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     background: none;
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
-    padding: 5px 10px;
-    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
     transition: all 0.3s;
+    flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -168,19 +151,567 @@ h1 {
     color: var(--container-bg);
 }
 
-/* Animation for the numbers */
-@keyframes pop-in {
-    0% {
-        transform: scale(0);
-    }
-    80% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
+/* ===========================
+   Container
+   =========================== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ===========================
+   Sections
+   =========================== */
+section {
+    padding: 4rem 0;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #005f7a 100%);
+    color: white;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.hero-section h1 {
+    font-size: 2.4rem;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 2.5rem;
+}
+
+.generator-note {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.content-section {
+    background-color: var(--container-bg);
+}
+
+.content-section.alt-bg {
+    background-color: var(--alt-bg);
+}
+
+.content-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--accent-color);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
+
+.content-section p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* ===========================
+   Lotto Generator
+   =========================== */
+.lotto-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .lotto-number {
-    animation: pop-in 0.5s ease-in-out;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: var(--lotto-number-bg);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    animation: pop-in 0.4s ease-out;
+}
+
+@keyframes pop-in {
+    0%   { transform: scale(0); opacity: 0; }
+    70%  { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#generate-btn {
+    background-color: white;
+    color: var(--accent-color);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#generate-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ===========================
+   Steps Grid
+   =========================== */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.step-card {
+    background: var(--container-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    border-top: 3px solid var(--accent-color);
+}
+
+.alt-bg .step-card {
+    background: var(--container-bg);
+}
+
+.step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+
+.step-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.step-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+/* ===========================
+   Info Box
+   =========================== */
+.info-box {
+    background: var(--info-box-bg);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.info-box strong {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-box ul li {
+    padding: 0.25rem 0;
+    color: var(--text-color);
+}
+
+.info-box ul li::before {
+    content: '✓ ';
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* ===========================
+   Prize Table
+   =========================== */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.prize-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: var(--container-bg);
+}
+
+.prize-table thead th {
+    background: var(--table-header-bg);
+    color: white;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.prize-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s;
+}
+
+.prize-table tbody tr:nth-child(even) {
+    background: var(--table-row-alt);
+}
+
+.prize-table tbody tr:hover {
+    background: var(--highlight-bg);
+}
+
+.prize-table td {
+    padding: 0.8rem 1rem;
+    color: var(--text-color);
+}
+
+.highlight-row td {
+    font-weight: 600;
+    color: var(--accent-color) !important;
+}
+
+.table-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+/* ===========================
+   Tips Grid
+   =========================== */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tip-card {
+    background: var(--alt-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.tip-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.tip-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+/* ===========================
+   FAQ
+   =========================== */
+.faq-list {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.faq-item {
+    background: var(--container-bg);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border-left: 4px solid var(--accent-color);
+}
+
+.faq-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.faq-item p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+/* ===========================
+   Responsible Section
+   =========================== */
+.responsible-section .container {
+    background: var(--responsible-bg);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.responsible-list {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.responsible-list li {
+    margin-bottom: 0.6rem;
+    color: var(--text-color);
+}
+
+/* ===========================
+   Inquiry Form
+   =========================== */
+.inquiry-section {
+    margin-bottom: 2.5rem;
+}
+
+.inquiry-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+.inquiry-section > p {
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--btn-bg);
+    color: white;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+/* ===========================
+   Disqus Section
+   =========================== */
+.disqus-section {
+    margin-top: 1.5rem;
+}
+
+.disqus-section hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.disqus-section h2 {
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: var(--footer-text);
+    opacity: 0.75;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.footer-nav a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.footer-disclaimer {
+    font-size: 0.82rem;
+    opacity: 0.6;
+    max-width: 650px;
+    margin: 0 auto 1rem;
+    line-height: 1.6;
+}
+
+.footer-copy {
+    font-size: 0.82rem;
+    opacity: 0.5;
+}
+
+/* ===========================
+   About / Privacy Page
+   =========================== */
+.page-hero {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #005f7a 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 1.5rem;
+}
+
+.page-hero h1 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-hero p {
+    opacity: 0.85;
+    font-size: 1rem;
+}
+
+.page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.page-content h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 0.75rem;
+    color: var(--accent-color);
+}
+
+.page-content h2:first-child {
+    margin-top: 0;
+}
+
+.page-content p,
+.page-content li {
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    font-size: 0.97rem;
+}
+
+.page-content ul,
+.page-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-content a {
+    color: var(--accent-color);
+}
+
+.last-updated {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 640px) {
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+
+    .header-inner {
+        gap: 1rem;
+    }
+
+    .main-nav {
+        gap: 0.75rem;
+    }
+
+    .main-nav a {
+        font-size: 0.85rem;
+    }
+
+    .lotto-number {
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+
+    .steps-grid,
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 2.5rem 0;
+    }
 }
